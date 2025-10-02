@@ -8,7 +8,7 @@ interface Member {
   birthday: string
   email: string
   phone: string
-  generation: string
+  // generation: string
   spouse?: number
   parents?: number[]
   children?: number[]
@@ -25,83 +25,83 @@ const FamilyHeritage = () => {
     // Grandparents
     {
       id: 1,
-      name: 'James Wilson',
-      birthday: 'March 15, 1945',
-      email: 'james.wilson@email.com',
+      name: 'Anthony Pregbaha',
+      birthday: 'March 3, 1945',
+      email: 'pregbaha@email.com',
       phone: '+1 555-0101',
-      generation: 'Grandparent',
+      // generation: 'Grandparent',
       spouse: 2,
       children: [5]
     },
     {
       id: 2,
-      name: 'Mary Wilson',
-      birthday: 'June 22, 1948',
-      email: 'mary.wilson@email.com',
+      name: 'Olusola Pregbaha',
+      birthday: 'March 1, 1948',
+      email: 'pregbaha@email.com',
       phone: '+1 555-0102',
-      generation: 'Grandparent',
+      // generation: 'Grandparent',
       spouse: 1,
       children: [5]
     },
     {
       id: 3,
-      name: 'David Johnson',
+      name: 'Mr Kolawole',
       birthday: 'September 8, 1943',
-      email: 'david.johnson@email.com',
+      email: 'pregbaha@email.com',
       phone: '+1 555-0103',
-      generation: 'Grandparent',
+      // generation: 'Grandparent',
       spouse: 4,
       children: [6]
     },
     {
       id: 4,
-      name: 'Patricia Johnson',
+      name: 'Mrs Kolawole',
       birthday: 'December 12, 1946',
-      email: 'patricia.johnson@email.com',
+      email: 'pregbaha@email.com',
       phone: '+1 555-0104',
-      generation: 'Grandparent',
+      // generation: 'Grandparent',
       spouse: 3,
       children: [6]
     },
     {
       id: 10,
-      name: 'José Martinez',
+      name: 'Joseph Kolawole',
       birthday: 'May 3, 1968',
-      email: 'jose.martinez@email.com',
+      email: 'pregbaha@email.com',
       phone: '+1 555-0110',
-      generation: 'Grandparent',
+      // generation: 'Grandparent',
       spouse: 11,
       children: [8]
     },
     {
       id: 11,
-      name: 'Maria Martinez',
+      name: 'Maria Kolawole',
       birthday: 'February 18, 1970',
-      email: 'maria.martinez@email.com',
+      email: 'pregbaha@email.com',
       phone: '+1 555-0111',
-      generation: 'Grandparent',
+      // generation: 'Grandparent',
       spouse: 10,
       children: [8]
     },
     // Parents
     {
       id: 5,
-      name: 'Robert Wilson',
-      birthday: 'April 10, 1970',
-      email: 'robert.wilson@email.com',
+      name: 'Daniel Pregbaha',
+      birthday: 'March 18, 1997',
+      email: 'pregbaha@email.com',
       phone: '+1 555-0105',
-      generation: 'Parent',
+      // generation: 'Parent',
       spouse: 6,
       parents: [1, 2],
       children: [7, 9]
     },
     {
       id: 6,
-      name: 'Sarah Wilson',
+      name: 'Priscilla Kolawole',
       birthday: 'August 5, 1972',
-      email: 'sarah.wilson@email.com',
+      email: 'pregbaha@email.com',
       phone: '+1 555-0106',
-      generation: 'Parent',
+      // generation: 'Parent',
       spouse: 5,
       parents: [3, 4],
       children: [7, 9]
@@ -109,52 +109,52 @@ const FamilyHeritage = () => {
     // Children
     {
       id: 7,
-      name: 'Emily Martinez',
+      name: 'Emily Kolawole',
       birthday: 'January 20, 1995',
-      email: 'emily.martinez@email.com',
+      email: 'emily.kolawole@email.com',
       phone: '+1 555-0107',
-      generation: 'Child',
+      // generation: 'Child',
       spouse: 8,
       parents: [5, 6],
       children: [12, 13]
     },
     {
       id: 8,
-      name: 'Carlos Martinez',
+      name: 'Carlos Kolawole',
       birthday: 'July 14, 1994',
-      email: 'carlos.martinez@email.com',
+      email: 'carlos.kolawole@email.com',
       phone: '+1 555-0108',
-      generation: 'Child',
+      // generation: 'Child',
       spouse: 7,
       parents: [10, 11],
       children: [12, 13]
     },
     {
       id: 9,
-      name: 'Michael Wilson',
+      name: 'Michael Pregbaha',
       birthday: 'November 8, 1998',
-      email: 'michael.wilson@email.com',
+      email: 'michael.pregbaha@email.com',
       phone: '+1 555-0109',
-      generation: 'Child',
+      // generation: 'Child',
       parents: [5, 6]
     },
     // Grandchildren
     {
       id: 12,
-      name: 'Sofia Martinez',
+      name: 'Sofia Kolawole',
       birthday: 'March 10, 2018',
-      email: 'sofia.martinez@email.com',
+      email: 'sofia.kolawole@email.com',
       phone: '+1 555-0112',
-      generation: 'Grandchild',
+      // generation: 'Grandchild',
       parents: [7, 8]
     },
     {
       id: 13,
-      name: 'Lucas Martinez',
+      name: 'Lucas Kolawole',
       birthday: 'June 15, 2020',
-      email: 'lucas.martinez@email.com',
+      email: 'lucas.kolawole@email.com',
       phone: '+1 555-0113',
-      generation: 'Grandchild',
+      // generation: 'Grandchild',
       parents: [7, 8]
     }
   ]
@@ -354,7 +354,7 @@ const FamilyHeritage = () => {
                       <div className="flex justify-between items-start mb-3">
                         <div>
                           <h3 className="text-lg font-bold text-gray-800">{member.name}</h3>
-                          <p className="text-sm text-blue-600 font-medium">{member.generation}</p>
+                          {/* <p className="text-sm text-blue-600 font-medium">{member.generation}</p> */}
                         </div>
                         <ChevronRight className="w-5 h-5 text-gray-400" />
                       </div>
