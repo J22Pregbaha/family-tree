@@ -1,0 +1,3 @@
+# Ignore the Heroku start script
+scripts/heroku-start.js
+firebase-messaging-sw.js

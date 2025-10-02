@@ -1,0 +1,48 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "quotes": ["error", "single"],
+    "no-trailing-spaces": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "semi": ["error", "never"],
+    "no-unused-vars": ["error", { "vars": "all", "args": "none", "ignoreRestSiblings": true }],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "linebreak-style": ["error", "unix"],
+    "indent": ["error", 2],
+    "eol-last": ["error", "always"],
+    "curly": ["error", "all"],
+    "no-alert": "error",
+    "consistent-return": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+    "no-extra-semi": "error",
+    "no-magic-numbers": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

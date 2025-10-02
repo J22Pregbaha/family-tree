@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pillotrack - You're Offline</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .header {
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo {
+      height: 1.5rem;
+      width: 6.88rem;
+      object-fit: contain;
+    }
+    
+    .main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 4rem);
+      padding: 1rem;
+    }
+    
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-align: center;
+      max-width: 400px;
+    }
+    
+    .offline-logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1rem;
+    }
+    
+    .brand-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #4E88B2;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.00rem;
+    }
+    
+    .offline-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    
+    .offline-message {
+      font-size: 0.875rem;
+      color: #666;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+    
+    .retry-link {
+      color: #4E88B2;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid #4E88B2;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .retry-link:hover {
+      background-color: #4E88B2;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .status-indicator {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: #999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .offline-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #ff6b6b;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    
+    .online-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #51cf66;
+      border-radius: 50%;
+    }
+    
+    @keyframes pulse {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    /* Responsive design */
+    @media (max-width: 480px) {
+      .header {
+        padding: 0.75rem 1rem;
+      }
+      
+      .logo {
+        height: 1.25rem;
+        width: 5.5rem;
+      }
+      
+      .brand-title {
+        font-size: 1.25rem;
+      }
+      
+      .offline-title {
+        font-size: 1.125rem;
+      }
+      
+      .offline-message {
+        font-size: 0.8125rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img
+    src="./images/logo.svg"
+    alt="Pillotrack Logo"
+    class="logo"
+    />
+  </div>
+  
+  <div class="main-container">
+    <div class="content">
+      <svg class="offline-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" stroke="#4E88B2" stroke-width="2" fill="none"/>
+        <path d="M30 40h40v20H30z" fill="#4E88B2" opacity="0.3"/>
+        <path d="M20 30c0-5.5 4.5-10 10-10h40c5.5 0 10 4.5 10 10v40c0 5.5-4.5 10-10 10H30c-5.5 0-10-4.5-10-10V30z" stroke="#4E88B2" stroke-width="2" fill="none"/>
+        <path d="M35 45h30M35 55h20" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="75" cy="25" r="8" fill="#ff6b6b"/>
+        <path d="M71 21l8 8M79 21l-8 8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      
+      <h2 class="brand-title">Pillotrack</h2>
+      <h1 class="offline-title">You're Currently Offline</h1>
+      <p class="offline-message">
+        Please check your internet connection and try again to continue using Pillotrack.
+      </p>
+      
+      <a href="javascript:location.reload()" class="retry-link">
+        Try Again
+      </a>
+      
+      <div class="status-indicator" id="statusIndicator">
+        <div class="offline-dot" id="statusDot"></div>
+        <span id="statusText">No internet connection</span>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const statusDot = document.getElementById('statusDot');
+    const statusText = document.getElementById('statusText');
+    
+    function updateStatus() {
+      if (navigator.onLine) {
+        statusDot.className = 'online-dot';
+        statusText.textContent = 'Connection restored';
+        // Auto-reload when back online
+        setTimeout(() => {
+          location.reload();
+        }, 1000);
+      } else {
+        statusDot.className = 'offline-dot';
+        statusText.textContent = 'No internet connection';
+      }
+    }
+    
+    // Check status on load
+    updateStatus();
+    
+    // Listen for connection changes
+    window.addEventListener('online', updateStatus);
+    window.addEventListener('offline', updateStatus);
+    
+    // Periodically check connection
+    setInterval(() => {
+      fetch('/favicon.ico', { 
+        method: 'HEAD', 
+        cache: 'no-cache',
+        mode: 'no-cors'
+      }).then(() => {
+        if (!navigator.onLine) {
+          // Connection is actually working, update status
+          navigator.onLine = true;
+          updateStatus();
+        }
+      }).catch(() => {
+        // Still offline
+      });
+    }, 5000);
+  </script>
+</body>
+</html>
